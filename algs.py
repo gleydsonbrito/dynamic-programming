@@ -27,3 +27,22 @@ def recursiveTopDownFib(n):
 
 
 # print(topDownFib(15))
+
+# Corte na Barra de Ferro
+# alg. 20.4
+def bottomUpFib(n):
+    F = [0]*n
+
+    if n <= 2:
+        return 1
+
+    F[0] = 1
+    F[1] = 1
+
+    for i in range(2, len(F)):
+        F[i] = F[i-1] + F[i-2]
+
+    return F[n-1]
+
+
+print(bottomUpFib(10))
