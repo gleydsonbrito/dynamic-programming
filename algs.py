@@ -6,18 +6,18 @@ def recursiveFib(n):
 
 
 # print(recursiveFib(15))
+# Fibonacci Recursivo Top Down Alg. 20.2 e 20.3
+F = [0] * 15
 
-F = []
 
-
-def topDownFib(n):
-
-    F.append(1)
-    F.append(1)
-    for i in range(2, len(F)):
+def topDownFib(m):
+    n = len(F)
+    F[0] = 1
+    F[1] = 1
+    for i in range(2, n):
         F[i] = -1
 
-    return recursiveTopDownFib(n)
+    return recursiveTopDownFib(m-1)
 
 
 def recursiveTopDownFib(n):
@@ -26,4 +26,4 @@ def recursiveTopDownFib(n):
     return F[n]
 
 
-print(topDownFib(15))
+# print(topDownFib(15))
