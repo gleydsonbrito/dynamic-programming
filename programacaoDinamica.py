@@ -46,13 +46,31 @@ def bottomUpFib(n):
     F[0] = 1  # inicaliza as 2 primeiras posições
     F[1] = 1  # necessárias a calculo das demais
 
-    # percorree a lista, e atribui a cada posição
+    # percorre a lista, e atribui a cada posição
     # a soma das suas posições anteriores
     for i in range(2, len(F)):
         F[i] = F[i-1] + F[i-2]
 
-    # retorna o último elemento
+    # retorna o último elemento da lista
     return F[n-1]
 
 
 # print(bottomUpFib(10))
+
+# algo. 20.5 do dcorte na barra de ferro
+def cutIronBar(n, p):
+    if n == 0:  # define o caso base das chamadas recursivas
+        return 0
+
+    l = -1  # define o valor mínimo para o lucro
+
+    for i in range(0, n):
+        # recupera o maior valor detre os valores retornados das chamadas recursivas
+        value = p[i] + cutIronBar(n - i - 1, p)
+        if value > l:
+            l = value
+    # retorn o máximo valor obtido
+    return l
+
+
+print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
