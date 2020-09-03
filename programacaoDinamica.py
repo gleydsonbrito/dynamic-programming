@@ -73,4 +73,33 @@ def cutIronBar(n, p):
     return l
 
 
+#print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
+B = []
+S = []
+
+
+def cutIronBarTopDown(p, n=None):
+    n = len(p)
+
+    B = [-1]*n
+    S = [0]*n
+
+    B[0] = 0
+
+    return recursiveCutIronBarTopDown(n, p)
+
+
+def recursiveCutIronBarTopDown(k, p):
+    if B[k] == -1:
+        l = -1
+        for i in range(1, k):
+            value = p[i] + recursiveCutIronBarTopDown(k-i-1, p)
+            if value > l:
+                l = value
+                S[k] = i
+        B[k] = l
+
+    return B[k]
+
+
 print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
