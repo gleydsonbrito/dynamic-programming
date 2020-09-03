@@ -74,32 +74,42 @@ def cutIronBar(n, p):
 
 
 #print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
-B = []
+B = []  # vetores globais
 S = []
+
+# função de inicialização
 
 
 def cutIronBarTopDown(p, n=None):
-    n = len(p)
+    n = len(p)  # tamanmho das listas
 
-    B = [-1]*n
-    S = [0]*n
+    B = [-1]*n  # inicialização do vetor de barras com -1
+    S = [0]*n  # inicialização do conjunto de soluções S
 
     B[0] = 0
-
+    # chamada recursiva
     return recursiveCutIronBarTopDown(n, p)
+
+# função de calculo da barra de ferro
 
 
 def recursiveCutIronBarTopDown(k, p):
+    # se B[k] for -1 essa solução ainda não foi avaliada
     if B[k] == -1:
+        # inicaliza o licro com valor mínimo
         l = -1
+        # percorre a lista de do fim para início recursivamente
+        # obntendo o maior valor para cada conjunto de soluação
         for i in range(1, k):
             value = p[i] + recursiveCutIronBarTopDown(k-i-1, p)
             if value > l:
                 l = value
                 S[k] = i
+
+        # retorna a melhor solução
         B[k] = l
 
     return B[k]
 
 
-print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
+#print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
