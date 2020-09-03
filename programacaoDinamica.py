@@ -65,7 +65,7 @@ def cutIronBar(n, p):
     l = -1  # define o valor mínimo para o lucro
 
     for i in range(0, n):
-        # recupera o maior valor detre os valores retornados das chamadas recursivas
+        # recupera o maior valor dentre os valores retornados das chamadas recursivas
         value = p[i] + cutIronBar(n - i - 1, p)
         if value > l:
             l = value
