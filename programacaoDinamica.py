@@ -112,4 +112,5 @@ def recursiveCutIronBarTopDown(k, p):
     return B[k]
 
 
-#print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
+print(cutIronBar(8, [1, 5, 8, 9, 10, 17, 17, 20]))
+print(S)
